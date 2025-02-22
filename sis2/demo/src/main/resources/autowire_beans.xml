@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fooFormatter" class="com.example.demo.autowire.FooFormatter"/>
+    <bean id="barFormatter" class="com.example.demo.autowire.BarFormatter"/>
+
+    <bean id="fooServiceConstructor" class="com.example.demo.autowire.service.FooServiceConstructor">
+        <constructor-arg ref="fooFormatter"/>
+    </bean>
+
+    <bean id="fooServiceSetter" class="com.example.demo.autowire.service.FooServiceSetter">
+        <property name="formatter" ref="barFormatter"/>
+    </bean>
+
+</beans>
